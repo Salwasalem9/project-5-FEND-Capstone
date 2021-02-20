@@ -24,72 +24,68 @@ function handleSubmit(event) {
   const star = document.querySelector('#start-Date').value;
   const end = document.querySelector('#end-Date').value;
  
-// use Moment.js
+// use Moment.js for format dates
 const starMoment = moment(star, 'YYYY-MM-DD');
 const endMoment = moment(end, 'YYYY-MM-DD');
-let CountTrip = endMoment.diff(starMoment, 'days');
-const DateNow = moment().format('YYYY-MM-DD');
+let count_days_Trip = endMoment.diff(starMoment, 'days');
+const dateNow = moment().format('YYYY-MM-DD');
 
 
-  const dateInfo = {
-    star: star,
-    end : end ,
-    CountTrip: CountTrip,
-  };
+ const dateInfo = { star: star, end : end ,count_days_Trip: count_days_Trip, };
 
 
 
-  // Check if inputs are valid
+  // Check if inputs dates are valid
   if (
-    CountTrip <= 0 ||
-    starMoment.isBefore(DateNow) ||
-    endMoment.isBefore(DateNow)
+    count_days_Trip <= 0 ||
+    starMoment.isBefore(dateNow) ||
+    endMoment.isBefore(dateNow)
   ){
-    alert(`Please, enter valid dates.`);
+    alert(`Please enter valid dates.`);
   } 
   else {
   
     {
       Toastify({
         text: 'Your data is processing.',
-        duration: 2500,
+        duration: 2000,
         newWindow: true,
         close: true,
         gravity: 'top',
         position: 'center',
-        backgroundColor: 'rgba(98, 149, 156, 0.741)',
+        backgroundColor: 'rgba(255, 0, 0, 0.2)',
       }).showToast();
       console.log(star, end);
       postData('http://localhost:8000/results', {
         destination: destination,
       }).then((data) => {
         updateUI(data, dateInfo);
-        // reset tge form
+        // reset form
         document.querySelector('form').reset();
       });
     }
   } 
 }
+
 // Global varibale to count how many cards are posted
-let cardsCountCreation = 0;
+let cardsCount = 0;
 
 const updateUI = (data, dateInfo) => {
   console.log(data);
-  const planSection = document.querySelector('#plans');
   let currentCard;
 
 
 
 
   // get cards
-const card =  document.getElementsByClassName("card").innerHTML = `${cardsCountCreation}`;
+const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}`;
   currentCard = card;
 
   
 
   // First (dates)
   const dates = document.getElementById("dates").innerHTML = `Your trip starts on <span>${dateInfo.star}</span><br> 
-  And ends on <span>${dateInfo.end}</span> <br/> <span>${dateInfo.CountTrip}</span> days the length of the trip`;
+  And ends on <span>${dateInfo.end}</span> <br/> <span>${dateInfo.count_days_Trip}</span> days the length of the trip`;
  
 
   // Third (ImageCity)
@@ -101,26 +97,25 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCountC
   }
 
   // Fourth div (#ForeseeWeather)
-  const  TodayForesee =  document.getElementById("TodayForesee");
-  const TodayForesee_p = document.getElementById("TodayForesee_p").innerHTML =("The weather today");
-  const TodayForesee_tem = document.getElementById("TodayForesee_tem").innerHTML = `Temperature${data.temp}°C` ;
+  const  todayForesee =  document.getElementById("todayForesee");
+  const todayForesee_p = document.getElementById("todayForesee_p").innerHTML =("The weather today");
+  const todayForesee_tem = document.getElementById("todayForesee_tem").innerHTML = `Temperature${data.temp}°C` ;
   
   const weatherIcons4 = document.getElementById("weatherIcons");
   weatherIcons4.setAttribute('src',`https://www.weatherbit.io/static/img/icons/${data.icon}.png`);
 
-  const TodayForesee_des = document.getElementById("TodayForesee_des").innerHTML = (`${data.description}`);
+  const todayForesee_des = document.getElementById("todayForesee_des").innerHTML = (`${data.description}`);
 
 
   // loop for ForeseeWeather
-  const ForeseeWeatherLoop = [ TodayForesee_p, TodayForesee_tem, weatherIcons4, TodayForesee_des, ];
+  const foreseeWeatherLoop = [ todayForesee_p, todayForesee_tem, weatherIcons4, todayForesee_des, ];
   let i = 0;
-  if ( i < ForeseeWeatherLoop.length) {
-    appendNewEle(TodayForesee, ForeseeWeatherLoop[i]);
+  if ( i < foreseeWeatherLoop.length) {
+    appendNewEle(todayForesee, foreseeWeatherLoop[i]);
     i++;
   }
 
-
-  
+// pulling a the forecast for multiple days.
   const foresee_weather = document.getElementById("foresee_weather");
 
   const foresee_p0 = document.getElementById("foresee_p").innerHTML = ("forecast of 16 days");
@@ -140,66 +135,6 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCountC
     appendNewEle(foresee_weather, prdictedAppendList[i]);
   }
 
-
-  // Sixth div (#planning)
-  let planningDiv = '';
-  if (planning.textLength > 0) {
-    planningDiv = createNewEle('div', 'planning-result', `${planning.value}`);
-  }
-  // Delete card button
-  const button = createNewEleClass(
-    'button',
-    `button card${cardsCountCreation}`,
-    '<i class="fas fa-times"></i>'
-  );
-  // I tried for 6 hours straight to use event listener to do this
-  // then I stumbled upon https://stackoverflow.com/a/64226108/14869876 and he saved me
-  button.setAttribute('onclick', 'return this.parentNode.remove();');
-  const eleList = [
-    cityCountry,
-    dates,
-    destination_image,
-    currentforecast,
-    predictedforecast,
-    button,
-  ];
-  if (planning.textLength > 0) {
-    eleList.splice(eleList.length - 1, 0, planningDiv);
-  }
-
-  // Appending the card to the page
-  appendNewEle(planSection, currentCard);
-  for (let i = 0; i < eleList.length; i++) {
-    appendNewEle(currentCard, eleList[i]);
-  }
-  cardsCountCreation = cardsCountCreation + 1;
-};
-// Event listener to delete cards
-
-// Credit: https://stackoverflow.com/a/57589712/14869876
-function lowerCase(str) {
-  return str
-    .split(' ')
-    .map((item) => item.charAt(0).toUpperCase() + item.slice(1).toLowerCase())
-    .join(' ');
-}
-
-// function to create new elements with ID
-function createNewEle(tag, type, content) {
-  const newEle = document.createElement(`${tag}`);
-  newEle.setAttribute('id', `${type}`);
-  newEle.innerHTML = `${content}`;
-  return newEle;
-}
-function createNewEleClass(tag, type, content) {
-  const newEle = document.createElement(`${tag}`);
-  newEle.setAttribute('class', `${type}`);
-  newEle.innerHTML = `${content}`;
-  return newEle;
-}
-
-function appendNewEle(parent, child) {
-  parent.appendChild(child);
 }
 
 export { handleSubmit };
