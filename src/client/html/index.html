@@ -6,13 +6,7 @@
     <title>FEND-Capstone-Project</title>
   
     <link rel="shortcut icon" href="../media/im.ico" type="image/x-icon" />
-   
-    <!-- Toastify -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <script src="https://kit.fontawesome.com/0c92eefc1b.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -26,24 +20,16 @@
           <input type="text" name="text" placeholder="From" id="Destination-from"
            onfocus="(this.placeholder='')" onblur="(this.placeholder='From')"required/>
 
-
           <input type="text" name="start-Date" id="start-Date" placeholder="Start of you trip DD.MM.YYYY" 
           onfocus="(this.type='date')" onblur="(this.type='text')" required/>
 
           <input type="text" name="end-Date" id="end-Date" placeholder="End of your trip DD.MM.YYYY"
            onfocus="(this.type='date')" onblur="(this.type='text')" required/>
 
-        
-           <button
-           type="submit"
-           id="submit-button"
-           onclick="return Client.handleSubmit(event)"
-         >
-         <i class="far fa-check-circle"></i>
-         </button>
+           <button type="submit" id="submit-button" onclick="return Client.handleSubmit(event)" >
+         <i class="far fa-check-circle"></i></button>
 
         </form>
-     
      
       </div>
     </section>
@@ -51,11 +37,11 @@
       <p id = city-country></p>
       <div id = dates></div>
       <div id = image></div>
-      <div id = TodayForesee>
-        <h3 id = TodayForesee_p ></h3>
-        <p id = TodayForesee_tem><br></p>
+      <div id = todayforesee>
+        <h3 id = todayforesee_p ></h3>
+        <p id = todayforesee_tem><br></p>
         <img src="" alt="" id="weatherIcons" />
-        <div id = TodayForesee_des></div>
+        <div id = todayforesee_des></div>
       </div>
       <div id="foresee_weather">
         <p id="foresee_p"><br></p>
