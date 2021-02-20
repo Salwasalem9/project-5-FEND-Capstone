@@ -1,0 +1,33 @@
+
+footer {
+  color: black;
+  text-align: center;
+}
+#social {
+  display: flex;
+  align-self: center;
+  justify-content: space-evenly;
+  font-size: 1.8em;
+  padding: 0.5em 0;
+  width: 50%;
+  margin: auto;
+  a {
+    text-decoration: none;
+    color: inherit;
+    &:visited {
+      text-decoration: none;
+    }
+  }
+  i {
+    -webkit-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition: 0.1s;
+    &:hover {
+      color: wheat;
+      cursor: pointer;
+      -webkit-transition: 0.1s;
+      -o-transition: 0.1s;
+      transition: 0.1s;
+    }
+  }
+}

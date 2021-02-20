@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FEND-Capstone-Project</title>
+  
+    <link rel="shortcut icon" href="../media/im.ico" type="image/x-icon" />
+   
+    <!-- Toastify -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script src="https://kit.fontawesome.com/0c92eefc1b.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">Travel App</h1>
+    </header>
+    <section id="entry">
+      <div id="entry-container">
+        <form action="" onsubmit="return Client.handleSubmit(event)">
+
+          <input type="text" name="text" placeholder="From" id="Destination-from"
+           onfocus="(this.placeholder='')" onblur="(this.placeholder='From')"required/>
+
+
+          <input type="text" name="start-Date" id="start-Date" placeholder="Start of you trip DD.MM.YYYY" 
+          onfocus="(this.type='date')" onblur="(this.type='text')" required/>
+
+          <input type="text" name="end-Date" id="end-Date" placeholder="End of your trip DD.MM.YYYY"
+           onfocus="(this.type='date')" onblur="(this.type='text')" required/>
+
+        
+           <button
+           type="submit"
+           id="submit-button"
+           onclick="return Client.handleSubmit(event)"
+         >
+         <i class="far fa-check-circle"></i>
+         </button>
+
+        </form>
+     
+     
+      </div>
+    </section>
+    <div class = card >
+      <p id = city-country></p>
+      <div id = dates></div>
+      <div id = image></div>
+      <div id = TodayForesee>
+        <h3 id = TodayForesee_p ></h3>
+        <p id = TodayForesee_tem><br></p>
+        <img src="" alt="" id="weatherIcons" />
+        <div id = TodayForesee_des></div>
+      </div>
+      <div id="foresee_weather">
+        <p id="foresee_p"><br></p>
+        <p id="foresee_temp"><br></p>
+        <p id="foresee_maxTemp"><br></p>
+        <p id="foresee_minTemp"><br></p>
+      </div >
+
+    </div>
+    
+    <footer>
+      <div id="social">
+        <a href="https://github.com/Salwasalem9" target="_blank">
+          <i class="fab fa-github"></i
+        ></a>
+        <a href="https://twitter.com/9g7Ae" target="_blank">
+          <i class="fab fa-twitter"></i
+        ></a>
+      </div>
+      <div id="credit">
+        <p>
+          Created by Salwa
+        </p>
+      </div>
+    </footer>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script>
+      // Check that service workers are supported
+      if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
+  </body>
+</html>
