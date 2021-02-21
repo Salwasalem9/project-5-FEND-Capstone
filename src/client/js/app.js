@@ -107,13 +107,7 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}
   const todayForesee_des = document.getElementById("todayForesee_des").innerHTML = (`${data.description}`);
 
 
-  // loop for ForeseeWeather
-  const foreseeWeatherLoop = [ todayForesee_p, todayForesee_tem, weatherIcons4, todayForesee_des, ];
-  let i = 0;
-  if ( i < foreseeWeatherLoop.length) {
-    appendChild(todayForesee, foreseeWeatherLoop[i]);
-    i++;
-  }
+ 
 
 // pulling a the forecast for multiple days.
   const foresee_weather = document.getElementById("foresee_weather");
@@ -129,13 +123,7 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}
   const foresee_minTemp3 = document.getElementById("foresee_minTemp").innerHTML =
     `Min Temperature<br><span>${data.minTemp} °C</span>`;
  
-  // loop for Foresee_weather
-  const prdictedAppendList = [ foresee_p0, foresee_temp1, foresee_maxTemp2, foresee_minTemp3, ];
-  let g = 0;
-  if ( g < prdictedAppendList.length) {
-    appendChild(foresee_weather, prdictedAppendList[i]);
-    i++;
-  }
+  
 
 
 }

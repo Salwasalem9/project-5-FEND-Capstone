@@ -1,0 +1,10 @@
+{
+    "presets": ["@babel/preset-env"],
+    // Credit: https://stackoverflow.com/a/60481632/14869876
+    // Had to use this to make testing with JEST works. Wihtout it, I ran
+    // into an error that states: ReferenceError: regeneratorRuntime is not defined
+    // This was the solution after searching for almost an hour :D
+    "plugins": [
+        "@babel/plugin-transform-runtime"
+        ]
+}
