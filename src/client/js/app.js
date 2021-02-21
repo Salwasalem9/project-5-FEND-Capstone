@@ -131,8 +131,8 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}
  
   // loop for Foresee_weather
   const prdictedAppendList = [ foresee_p0, foresee_temp1, foresee_maxTemp2, foresee_minTemp3, ];
-  let i = 0;
-  if ( i < prdictedAppendList.length) {
+  let g = 0;
+  if ( g < prdictedAppendList.length) {
     appendChild(foresee_weather, prdictedAppendList[i]);
     i++;
   }
