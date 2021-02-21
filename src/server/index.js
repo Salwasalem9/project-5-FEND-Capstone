@@ -34,7 +34,7 @@ const pixabay_Key = process.env.PIXABAY_KEY;
 const pixabayParameters = 'image_type=photo&safesearch=true';
 console.log(`Pixabay API Key is ${pixabay_Key}`);
 
-const geonamesData = (data) => {
+const geonames_Data = (data) => {
   const lon = data.geonames[0].lng;
   const lat = data.geonames[0].lat;
   const country = data.geonames[0].countryName;
@@ -152,5 +152,5 @@ app.post('/results', (req, res) => {
     .catch((error) => console.log(error));
 });
 
-// To test server using jest and supertest
+// test server 
 module.exports = app;
