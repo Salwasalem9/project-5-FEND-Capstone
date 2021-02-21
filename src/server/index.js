@@ -18,42 +18,42 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('dist'));
 
-// Geonames API
-const GeonamesURL = 'http://api.geonames.org/searchJSON?q=';
-const GeonamesKey = process.env.GEONAMES_USERNAME;
-console.log(`Geonames API Key is ${GeonamesKey}`);
+// Geonames URL+KEY
+const Geonames_URL = 'http://api.geonames.org/searchJSON?q=';
+const Geonames_Key = process.env.GEONAMES_USERNAME;
+console.log(`Geonames API Key is ${Geonames_Key}`);
 
-// Weatherbit API
-const weatherbitURL = 'https://api.weatherbit.io/v2.0/forecast/daily?';
-const weatherbitKey = process.env.WEATHERBIT_KEY;
-console.log(`Weatherbit API Key is ${weatherbitKey}`);
+// Weatherbit URL+KEY
+const weatherbit_URL = 'https://api.weatherbit.io/v2.0/forecast/daily?';
+const weatherbit_Key = process.env.WEATHERBIT_KEY;
+console.log(`Weatherbit API Key is ${weatherbit_Key}`);
 
-// Pixabay API
-const pixabayURL = 'https://pixabay.com/api/?';
-const pixabayKey = process.env.PIXABAY_KEY;
+// Pixabay URL+KEY
+const pixabay_URL = 'https://pixabay.com/api/?';
+const pixabay_Key = process.env.PIXABAY_KEY;
 const pixabayParameters = 'image_type=photo&safesearch=true';
-console.log(`Pixabay API Key is ${pixabayKey}`);
+console.log(`Pixabay API Key is ${pixabay_Key}`);
 
 const geonamesData = (data) => {
   const lon = data.geonames[0].lng;
   const lat = data.geonames[0].lat;
   const country = data.geonames[0].countryName;
-  const geonamesInfo = {
+  const geonames_information = {
     lon: lon,
     lat: lat,
     country: country,
   };
 
-  console.log(geonamesInfo);
-  return geonamesInfo;
+  console.log(geonames_information);
+  return geonames_information;
 };
 
-const weatherbitData = (data) => {
+const weatherbit_Data = (data) => {
   const lon = data.lon;
   const lat = data.lat;
   const country = data.country;
   return fetch(
-    `${weatherbitURL}&lat=${lat}&lon=${lon}&days=16&key=${weatherbitKey}`
+    `${weatherbit_URL}&lat=${lat}&lon=${lon}&days=16&key=${weatherbit_Key}`
   )
     .then((res) => {
       return res.json();
@@ -63,7 +63,7 @@ const weatherbitData = (data) => {
       const icon = data.data[0].weather.icon;
       const description = data.data[0].weather.description;
 
-      // Average temp for 16 days (They only offer 16 days forecast)
+      // Average weather temp for 16 days 
       let avgTemp = 0;
       let maxTemp = 0;
       let minTemp = 0;
@@ -89,9 +89,9 @@ const weatherbitData = (data) => {
     });
 };
 
-const pixabayData = (passedData, destination) => {
+const pixabay_Data = (passedData, destination) => {
   return fetch(
-    `${pixabayURL}key=${pixabayKey}&q=${destination}&${pixabayParameters}`
+    `${pixabay_URL}key=${pixabay_Key}&q=${destination}&${pixabayParameters}`
   )
     .then((res) => {
       return res.json();
@@ -101,7 +101,7 @@ const pixabayData = (passedData, destination) => {
       if (data.total > 0) {
         ImageCity = data.hits[0].largeImageURL;
       }
-      const finalInfo = {
+      const all_Info = {
         destination: destination,
         country: passedData.country,
         temp: passedData.temp,
@@ -112,9 +112,9 @@ const pixabayData = (passedData, destination) => {
         description: passedData.description,
         ImageCity: ImageCity,
       };
-      console.log(finalInfo);
+      console.log(all_Info);
 
-      return finalInfo;
+      return all_Info;
     });
 };
 
@@ -132,19 +132,19 @@ app.post('/results', (req, res) => {
   //parse destination from req.body on route /results
   let destination = data.destination;
 
-  fetch(`${GeonamesURL}${destination}&username=${GeonamesKey}`)
+  fetch(`${Geonames_URL}${destination}&username=${Geonames_Key}`)
     .then((res) => {
      // console.log(`${GeonamesURL}${destination}&username=${GeonamesKey}`);
       return res.json();
     })
     .then((data) => {
-      return geonamesData(data);
+      return geonames_Data(data);
     })
     .then((GNData) => {
-      return weatherbitData(GNData);
+      return weatherbit_Data(GNData);
     })
     .then((WBData) => {
-      return pixabayData(WBData, destination);
+      return pixabay_Data(WBData, destination);
     })
     .then((data) => {
       res.send(data);

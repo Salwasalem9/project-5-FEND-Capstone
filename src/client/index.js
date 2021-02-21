@@ -1,4 +1,3 @@
-// imports, exports, etc,..
 // js files
 import { handleSubmit } from './js/app';
 
