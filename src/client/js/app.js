@@ -111,7 +111,7 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}
   const foreseeWeatherLoop = [ todayForesee_p, todayForesee_tem, weatherIcons4, todayForesee_des, ];
   let i = 0;
   if ( i < foreseeWeatherLoop.length) {
-    appendNewEle(todayForesee, foreseeWeatherLoop[i]);
+    appendChild(todayForesee, foreseeWeatherLoop[i]);
     i++;
   }
 
@@ -134,6 +134,12 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}
   for (let i = 0; i < prdictedAppendList.length; i++) {
     appendNewEle(foresee_weather, prdictedAppendList[i]);
   }
+
+  /*let i = 0;
+  if ( i < foreseeWeatherLoop.length) {
+    appendNewEle(todayForesee, foreseeWeatherLoop[i]);
+    i++;
+  }*/
 
 }
 
