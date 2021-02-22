@@ -1,0 +1,110 @@
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+#first {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: min-content;
+  grid-template-areas: 'empty1 field empty2';
+}
+ 
+  #first_info {
+    display: field;
+    form{
+    grid-template-columns:50% 50% ;
+    grid-template-areas:
+      ' destination destination '
+      '  start end '
+      ' button button ';
+    grid-gap: 1em;
+    input {
+      border: 1px #1e212d;
+      border-radius: 8px;
+    }
+    #destination-from{
+      grid-area: destination ;
+    }
+    #start-Date{
+      grid-area:  start;
+    }
+    #end-Date{
+      grid-area: end;
+    }
+    #submit-button{
+      grid-area: button ;
+    }
+  }
+}
+#first_info {
+  margin: 0 1em;
+  form {
+    display: flex;
+    flex-direction: column;
+    input {
+      border-radius: 3em;
+      display: block;
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      min-height: 1.2em;
+    }
+    input[type='date'] {
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+      height: 2.1em;
+    }
+    textarea {
+      border-radius: 1em;
+    }
+    #submit-button {
+      background-color: transparent;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 2.7em;
+      border: 0;
+      width: fit-content;
+      align-self: center;
+      -webkit-transition: 0.1s;
+      -o-transition: 0.1s;
+      transition: 0.1s;
+      &:hover {
+        color: rgba(98, 149, 156, 0.741);
+        cursor: pointer;
+        -webkit-transition: 0.1s;
+        -o-transition: 0.1s;
+        transition: 0.1s;
+      }
+      &:active,
+      &:focus,
+      &:visited {
+        outline: none;
+      }
+    }
+    input,
+    textarea {
+      border: 0;
+      width: 100%;
+      background-color: rgba(255, 243, 229, 0.741);
+      font-family: $placeholder-font;
+      font-size: 1.5em;
+      font-weight: 700;
+      text-align: center;
+      padding: 6px;
+      margin-bottom: 10px;
+      &::placeholder {
+        color: black;
+        opacity: 1;
+      }
+      &:active,
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
