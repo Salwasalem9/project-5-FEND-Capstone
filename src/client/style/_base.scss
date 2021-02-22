@@ -9,3 +9,38 @@ body {
   justify-content: space-between;
   
 }
+#first {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: min-content;
+  grid-template-areas: 'nothing1 range nothing2';
+}
+#first_info {
+  grid-area:range
+  form {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(3, 60px);
+    grid-template-areas:
+      'destination destination'
+      'start end'
+      'button button';
+    grid-gap: 1em;
+    input {
+      border: 1px #1e212d;
+      border-radius: 88px;
+    }
+    #destination-from{
+      grid-area: destination ;
+    }
+    #start-Date{
+      grid-area:  start;
+    }
+    #end-Date{
+      grid-area: end;
+    }
+    #submit-button{
+      grid-area: button ;
+    }
+  }
+}
