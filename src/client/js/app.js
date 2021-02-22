@@ -16,11 +16,18 @@ const postData = async (url = '', data = {}) => {
     }
   };
   
-  
+  import { jsPDF } from "jspdf";
+
+// Default export is a4 paper, portrait, using millimeters for units
+const doc = new jsPDF();
+
+doc.text("Hello world!", 10, 10);
+doc.save("a4.pdf");
+
 function handleSubmit(event) {
   event.preventDefault();
   
-  const destination = document.querySelector('#Destination-from').value;
+  const destination = document.querySelector('#destination-from').value;
   const star = document.querySelector('#start-Date').value;
   const end = document.querySelector('#end-Date').value;
  
