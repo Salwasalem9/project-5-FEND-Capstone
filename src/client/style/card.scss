@@ -1,4 +1,53 @@
 #first{
     display: grid;
-    
+    grid-template-columns: 10px 80px  10px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    ". ho ."
+    ". h12 ."
+    ". h13 .";
+
+} 
+#one{
+    grid-area: ho;
+    border: 1px  solid red;
+}
+#two{
+    grid-area: h12;
+    border: 1px  solid red;
+}
+#three{
+    grid-area: h13;
+    border: 1px  solid red;
+}
+
+
+
+
+/*form{
+    display: grid;
+    grid-template-columns: 700px 80px  10px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      ". des ."
+      ". start ."
+      ". end ."
+      ". button .";
+  }
+
+#destination-from{
+    grid-area: des;
+    border: 1px solid red;
+}
+
+#start-Date{
+    grid-area: start;
+}
+
+#end-Date{
+    grid-area:  end;
+}
+
+#submit-button{
+    grid-area: button;
 }
