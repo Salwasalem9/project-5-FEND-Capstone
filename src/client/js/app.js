@@ -44,7 +44,8 @@ const dateNow = moment().format('YYYY-MM-DD');
     alert(`Please enter valid dates.`);
   } 
   else {
-      /*Toastify({
+    {
+      Toastify({
         text: 'Your data is processing.',
         duration: 2000,
         newWindow: true,
@@ -52,7 +53,7 @@ const dateNow = moment().format('YYYY-MM-DD');
         gravity: 'top',
         position: 'center',
         backgroundColor: 'rgba(255, 0, 0, 0.2)',
-      }).*/
+      }).
       showToast();
       console.log(star, end);
       postData('http://localhost:8081/results', {
@@ -62,6 +63,7 @@ const dateNow = moment().format('YYYY-MM-DD');
         // reset form
         document.querySelector('form').reset();
       });
+    }
   } 
 }
 
