@@ -44,8 +44,6 @@ const dateNow = moment().format('YYYY-MM-DD');
     alert(`Please enter valid dates.`);
   } 
   else {
-  
-    {
       /*Toastify({
         text: 'Your data is processing.',
         duration: 2000,
@@ -64,7 +62,6 @@ const dateNow = moment().format('YYYY-MM-DD');
         // reset form
         document.querySelector('form').reset();
       });
-    }
   } 
 }
 
