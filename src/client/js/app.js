@@ -16,14 +16,7 @@ const postData = async (url = '', data = {}) => {
     }
   };
   
-  import { jsPDF } from "jspdf";
-
-// Default export is a4 paper, portrait, using millimeters for units
-const doc = new jsPDF();
-
-doc.text("Hello world!", 10, 10);
-doc.save("a4.pdf");
-
+ 
 function handleSubmit(event) {
   event.preventDefault();
   
@@ -53,7 +46,7 @@ const dateNow = moment().format('YYYY-MM-DD');
   else {
   
     {
-      Toastify({
+      /*Toastify({
         text: 'Your data is processing.',
         duration: 2000,
         newWindow: true,
@@ -61,9 +54,10 @@ const dateNow = moment().format('YYYY-MM-DD');
         gravity: 'top',
         position: 'center',
         backgroundColor: 'rgba(255, 0, 0, 0.2)',
-      }).showToast();
+      }).*/
+      showToast();
       console.log(star, end);
-      postData('http://localhost:8000/results', {
+      postData('http://localhost:8081/results', {
         destination: destination,
       }).then((data) => {
         updateUI(data, dateInfo);
@@ -117,7 +111,7 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}
  
 
 // pulling a the forecast for multiple days.
-  const foresee_weather = document.getElementById("foresee_weather");
+ /* const foresee_weather = document.getElementById("foresee_weather");
 
   const foresee_p0 = document.getElementById("foresee_p").innerHTML = ("forecast of 16 days");
 
@@ -129,7 +123,7 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}
 
   const foresee_minTemp3 = document.getElementById("foresee_minTemp").innerHTML =
     `Min Temperature<br><span>${data.minTemp} °C</span>`;
- 
+ */
   
 
 

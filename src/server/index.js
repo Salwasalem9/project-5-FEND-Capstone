@@ -63,23 +63,23 @@ const weatherbit_Data = (data) => {
       const icon = data.data[0].weather.icon;
       const description = data.data[0].weather.description;
 
-      // Average weather temp for 16 days 
-      let avgTemp = 0;
+      // Average weather temp for 15 days 
+      /*let avgTemp = 0;
       let maxTemp = 0;
       let minTemp = 0;
-      for (let i = 0; i < 16; i++) {
+      for (let i = 0; i < 15; i++) {
         avgTemp = data.data[i].temp + avgTemp;
         maxTemp = data.data[i].max_temp + maxTemp;
         minTemp = data.data[i].min_temp + minTemp;
       }
-      avgTemp = Math.round(avgTemp / 16);
-      maxTemp = Math.round(maxTemp / 16);
-      minTemp = Math.round(minTemp / 16);
+      avgTemp = Math.round(avgTemp / 15);
+      maxTemp = Math.round(maxTemp / 15);
+      minTemp = Math.round(minTemp / 15);*/
 
       const weatherbitInfo = {
-        avgTemp: avgTemp,
-        maxTemp: maxTemp,
-        minTemp: minTemp,
+        //avgTemp: avgTemp,
+        //maxTemp: maxTemp,
+        //minTemp: minTemp,
         temp: temp,
         description: description,
         icon: icon,
@@ -105,9 +105,9 @@ const pixabay_Data = (passedData, destination) => {
         destination: destination,
         country: passedData.country,
         temp: passedData.temp,
-        avgTemp: passedData.avgTemp,
-        maxTemp: passedData.maxTemp,
-        minTemp: passedData.minTemp,
+        //avgTemp: passedData.avgTemp,
+        //maxTemp: passedData.maxTemp,
+        //minTemp: passedData.minTemp,
         icon: passedData.icon,
         description: passedData.description,
         ImageCity: ImageCity,
