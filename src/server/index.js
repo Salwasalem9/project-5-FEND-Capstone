@@ -67,9 +67,12 @@ const weatherbit_Data = (data) => {
       
       let high = 0;
       let low = 0;
-      for (let i = 0; i < 15; i++) {
+
+      let i = 0;
+      while ( i < 15) {
         high = data.data[i].high_temp + high;
         low = data.data[i].low_temp + low;
+        i++
       }
       high = Math.round(high / 15);
       low = Math.round(low / 15);

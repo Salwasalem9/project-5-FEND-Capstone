@@ -30,10 +30,7 @@ const endMoment = moment(end, 'YYYY-MM-DD');
 let count_days_Trip = endMoment.diff(starMoment, 'days');
 const dateNow = moment().format('YYYY-MM-DD');
 
-
  const dateInfo = { star: star, end : end ,count_days_Trip: count_days_Trip, };
-
-
 
   // Check if inputs dates are valid
   if (
@@ -67,27 +64,15 @@ const dateNow = moment().format('YYYY-MM-DD');
   } 
 }
 
-// Global varibale to count how many cards are posted
-let cardsCount = 0;
+
 
 const updateUI = (data, dateInfo) => {
   console.log(data);
-  let currentCard;
-
-
-
-
-  // get cards
-const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}`;
-  currentCard = card;
-
-  
 
   // First (dates)
   const dates = document.getElementById("dates").innerHTML = `Your trip starts on <span>${dateInfo.star}</span><br> 
   And ends on <span>${dateInfo.end}</span> <br/> <span>${dateInfo.count_days_Trip}</span> days the length of the trip`;
  
-
   // Third (ImageCity)
   const ImageCity2 = document.getElementById("image");
   if (data.ImageCity === 'No images!') {
@@ -100,14 +85,9 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}
   const  todayForesee =  document.getElementById("todayForesee");
   const todayForesee_p = document.getElementById("todayForesee_p").innerHTML =("The weather today");
   const todayForesee_tem = document.getElementById("todayForesee_tem").innerHTML = `Temperature${data.temp}°C` ;
-  
   const weatherIcons4 = document.getElementById("weatherIcons");
   weatherIcons4.setAttribute('src',`https://www.weatherbit.io/static/img/icons/${data.icon}.png`);
-
   const todayForesee_des = document.getElementById("todayForesee_des").innerHTML = (`${data.description}`);
-
-
- 
 
 // pulling a the forecast for multiple days.
   const foresee_p0 = document.getElementById("foresee_p").innerHTML = ("forecast of 15 days");
@@ -115,10 +95,6 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}
   `High <br><span>${data.high} °C</span>`;
   const foresee_low = document.getElementById("foresee_low").innerHTML =
     `Low<br><span>${data.low} °C</span>`;
- 
-  
-
-
 }
 
 export { handleSubmit };
