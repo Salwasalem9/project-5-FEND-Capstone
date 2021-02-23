@@ -7,10 +7,84 @@ html {
 body {
   height: 100%;
   display: flex;
+  flex-direction: column ;
+  justify-content: space-between;
+  background-color: #eae3c8;
+}
+
+
+#first_info {
+  margin-left: 30px;
+  background-color:burlywood;
+  width: max-content;
+  padding: 30px;
+  display: flex;
   flex-direction: column;
+  border-radius: 10px;
+}
+
+
+
+
+input {
+  margin-top: 12px;
+  width: max-content;
+  padding: 13px;
+  border-radius: 6px;
+  border: 1px solid black;
+}
+
+button {
+
+  margin-top: 0.6rem;
+  padding: 13px;
+  border-radius: 9px;
+}
+
+span {
+  width: max-content;
+  margin-top: 10px;
+  margin-left: 12px;
+  color:aqua;
+}
+
+
+.card {
+  border-radius:12px;
+  padding: 25px;
+  width: min-content;
+  background-color: white;
+  margin-bottom: 25px;
+}
+
+//.card image {
+ // width: 200px;
+ // height: 100px;
+//}
+
+.card image a{
+  width: 300px;
+  height: 300px;
+}
+
+
+.city-country,
+.dates,
+.image,
+.todayForesee {
+  display: flex;
+  flex-direction: row;
+  column-gap: 12px;
+  padding: 12px;
   justify-content: space-between;
 }
 
+.foresee_p{
+  display: flex;
+  flex-direction: column;
+  row-gap: 13px;
+  padding: 12px;
+}
 
 
 

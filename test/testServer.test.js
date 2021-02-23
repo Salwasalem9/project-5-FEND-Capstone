@@ -1,4 +1,4 @@
-// https://www.freecodecamp.org/news/end-point-testing/#part1
+// https://www.freecodecamp.org
 const request = require('supertest');
 const app = require('../src/server/index');
 

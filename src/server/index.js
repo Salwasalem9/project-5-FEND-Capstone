@@ -63,27 +63,24 @@ const weatherbit_Data = (data) => {
       const icon = data.data[0].weather.icon;
       const description = data.data[0].weather.description;
 
-      // Average weather temp for 15 days 
-      /*let avgTemp = 0;
-      let maxTemp = 0;
-      let minTemp = 0;
+      // high and low weather temp for 15 days 
+      
+      let high = 0;
+      let low = 0;
       for (let i = 0; i < 15; i++) {
-        avgTemp = data.data[i].temp + avgTemp;
-        maxTemp = data.data[i].max_temp + maxTemp;
-        minTemp = data.data[i].min_temp + minTemp;
+        high = data.data[i].high_temp + high;
+        low = data.data[i].low_temp + low;
       }
-      avgTemp = Math.round(avgTemp / 15);
-      maxTemp = Math.round(maxTemp / 15);
-      minTemp = Math.round(minTemp / 15);*/
+      high = Math.round(high / 15);
+      low = Math.round(low / 15);
 
       const weatherbitInfo = {
-        //avgTemp: avgTemp,
-        //maxTemp: maxTemp,
-        //minTemp: minTemp,
+        country: country,
         temp: temp,
         description: description,
         icon: icon,
-        country: country,
+        high: high,
+        low: low,
       };
       return weatherbitInfo;
     });
@@ -97,7 +94,7 @@ const pixabay_Data = (passedData, destination) => {
       return res.json();
     })
     .then((data) => {
-      let ImageCity = 'No images were found!';
+      let ImageCity = 'No images found!';
       if (data.total > 0) {
         ImageCity = data.hits[0].largeImageURL;
       }
@@ -105,11 +102,10 @@ const pixabay_Data = (passedData, destination) => {
         destination: destination,
         country: passedData.country,
         temp: passedData.temp,
-        //avgTemp: passedData.avgTemp,
-        //maxTemp: passedData.maxTemp,
-        //minTemp: passedData.minTemp,
         icon: passedData.icon,
         description: passedData.description,
+        high: passedData.high,
+        low: passedData.low,
         ImageCity: ImageCity,
       };
       console.log(all_Info);

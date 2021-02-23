@@ -110,19 +110,12 @@ const card =  document.getElementsByClassName("card").innerHTML = `${cardsCount}
  
 
 // pulling a the forecast for multiple days.
- /* const foresee_weather = document.getElementById("foresee_weather");
-
-  const foresee_p0 = document.getElementById("foresee_p").innerHTML = ("forecast of 16 days");
-
-  const foresee_temp1 = document.getElementById("foresee_temp").innerHTML =
-   `Average Temperature<br><span>${data.avgTemp} °C</span>`;
-
-  const foresee_maxTemp2 = document.getElementById("foresee_maxTemp").innerHTML = 
-  `Max Temperature<br><span>${data.maxTemp} °C</span>`;
-
-  const foresee_minTemp3 = document.getElementById("foresee_minTemp").innerHTML =
-    `Min Temperature<br><span>${data.minTemp} °C</span>`;
- */
+  const foresee_p0 = document.getElementById("foresee_p").innerHTML = ("forecast of 15 days");
+  const foresee_high = document.getElementById("foresee_high").innerHTML = 
+  `High <br><span>${data.high} °C</span>`;
+  const foresee_low = document.getElementById("foresee_low").innerHTML =
+    `Low<br><span>${data.low} °C</span>`;
+ 
   
 
 
