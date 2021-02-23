@@ -46,20 +46,13 @@
         border: 0;
         width: 100%;
         background-color: rgba(255, 243, 229, 0.741);
-        font-family: $placeholder-font;
+      
         font-size: 1.5em;
         font-weight: 700;
         text-align: center;
         padding: 6px;
         margin-bottom: 10px;
-        &::placeholder {
-          color: black;
-          opacity: 1;
-        }
-        &:active,
-        &:focus {
-          outline: none;
-        }
+       
       }
     }
   }
