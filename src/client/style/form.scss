@@ -14,9 +14,9 @@
         grid-template-columns: 50% 50%;
         grid-template-rows: repeat(3, 60px);
         grid-template-areas:
-          'dest text'
-          'start text'
-          'end button';
+          'dest  dest'
+          'start end '
+          ' button button';
         grid-gap: 1em;
         input {
           border-radius: 2.5em;
