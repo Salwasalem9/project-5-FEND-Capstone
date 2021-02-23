@@ -127,13 +127,12 @@ app.post('/results', (req, res) => {
   const data = req.body;
 
 
-  //console.log(`${GeonamesURL}${destination}&username=${GeonamesKey}`);
+ 
   //parse destination from req.body on route /results
   let destination = data.destination;
 
   fetch(`${Geonames_URL}${destination}&username=${Geonames_Key}`)
     .then((res) => {
-     // console.log(`${GeonamesURL}${destination}&username=${GeonamesKey}`);
       return res.json();
     })
     .then((data) => {
