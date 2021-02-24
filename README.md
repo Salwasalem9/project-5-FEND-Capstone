@@ -1,6 +1,6 @@
 # Project - FEND Capstone - Travel App
-### Travel App:
-## The project include form requirement enter the location you are traveling to and the date you are leaving.
+# Travel App:
+### The project include form requirement enter the location you are traveling to and the date you are leaving.
 ## What the app is doing ?
 ### The app is helping you to plan your trip, by adding the location and dates, display length of trip, weather for location the forecast for multiple days. Also, image for the country from Pixabay API.
 ## Project requirements
