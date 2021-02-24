@@ -7,7 +7,7 @@
 1. There should be Node.js installed and API Keys for at least 3 APIs, including Weatherbit, Geonames and Pixabay.
 2. Should contain 3 scripts, express server, build, test in webpack .
 # Setting up the APIs
- A .env file should be created with the following structure
+ ### A .env file should be created with the following structure
  GEONAMES_USER=genonames_api_username
  WEATHERBIT_KEY=weatherbit_api_key
  PIXABAY_KEY=pixabay_api_key
