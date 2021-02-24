@@ -12,7 +12,6 @@ body {
   background-color: #eae3c8;
 }
 
-
 #first_info {
   margin-left: 30px;
   background-color:burlywood;
@@ -87,5 +86,35 @@ span {
 }
 
 
+@media (min-width: 600px) {
+  .container {
+    display: grid;
+    grid-template-columns: auto ; 
+    grid-gap: 100px;
+  }
 
+}
+
+@media (min-width: 1090px) {
+  #entry {
+    grid-template-columns: 15% 70% 15%;
+  }
+}
+
+@media (min-width: 600px) {
+  .card {
+    flex: 0 0 46%;
+  }
+}
+@media (min-width: 991px) {
+  .card {
+    flex: 0 0 33%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    flex: 0 0 25%;
+  }
+}
 
